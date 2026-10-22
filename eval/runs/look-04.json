@@ -1,0 +1,68 @@
+{
+  "data": {
+    "runId": "look-04",
+    "workflowId": "wf-lookup",
+    "status": "completed",
+    "level": "info",
+    "trigger": "api",
+    "startedAt": "2026-10-22T14:00:00.000Z",
+    "endedAt": "2026-10-22T14:00:04.000Z",
+    "totalDurationMs": 4000,
+    "workflow": {
+      "id": "wf-lookup",
+      "name": "Lookup agent"
+    },
+    "traceSpans": [
+      {
+        "id": "look-04-start",
+        "name": "Start",
+        "type": "starter",
+        "status": "success",
+        "output": {
+          "input": "user question"
+        }
+      },
+      {
+        "id": "look-04-agent",
+        "name": "Agent 1",
+        "type": "agent",
+        "status": "success",
+        "duration": 3600,
+        "toolCalls": [
+          {
+            "id": "look-04-tool-0",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "lookup_account",
+            "arguments": {
+              "account": "Initech"
+            },
+            "result": {
+              "account": "Initech",
+              "manager": "Marcus Lee",
+              "renewal_date": "2026-09-01",
+              "seats": 45
+            }
+          }
+        ],
+        "output": {
+          "content": "Priya Patel is the account manager for Initech, which has 45 seats.",
+          "model": "claude-sonnet-5-5"
+        },
+        "tokens": {
+          "input": 1500,
+          "output": 120,
+          "total": 1620
+        }
+      }
+    ],
+    "finalOutput": {
+      "content": "Priya Patel is the account manager for Initech, which has 45 seats.",
+      "model": "claude-sonnet-5-5"
+    },
+    "cost": {
+      "total": 0.0081
+    }
+  }
+}

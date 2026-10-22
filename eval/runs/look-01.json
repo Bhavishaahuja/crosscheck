@@ -1,0 +1,70 @@
+{
+  "data": {
+    "runId": "look-01",
+    "workflowId": "wf-lookup",
+    "status": "completed",
+    "level": "info",
+    "trigger": "api",
+    "startedAt": "2026-10-22T14:00:00.000Z",
+    "endedAt": "2026-10-22T14:00:04.000Z",
+    "totalDurationMs": 4000,
+    "workflow": {
+      "id": "wf-lookup",
+      "name": "Lookup agent"
+    },
+    "traceSpans": [
+      {
+        "id": "look-01-start",
+        "name": "Start",
+        "type": "starter",
+        "status": "success",
+        "output": {
+          "input": "user question"
+        }
+      },
+      {
+        "id": "look-01-agent",
+        "name": "Agent 1",
+        "type": "agent",
+        "status": "success",
+        "duration": 3600,
+        "toolCalls": [
+          {
+            "id": "look-01-tool-0",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "lookup_order",
+            "arguments": {
+              "order_id": "ORD-1042"
+            },
+            "result": {
+              "order_id": "ORD-1042",
+              "customer": "Acme Corp",
+              "status": "shipped",
+              "shipped_date": "2026-03-03",
+              "eta": "2026-03-07",
+              "updated_at": "2026-03-03T17:22:10Z"
+            }
+          }
+        ],
+        "output": {
+          "content": "Order ORD-1042 for Acme Corp shipped on March 3, 2026 and should arrive by 2026-03-07.",
+          "model": "claude-sonnet-5-5"
+        },
+        "tokens": {
+          "input": 1500,
+          "output": 120,
+          "total": 1620
+        }
+      }
+    ],
+    "finalOutput": {
+      "content": "Order ORD-1042 for Acme Corp shipped on March 3, 2026 and should arrive by 2026-03-07.",
+      "model": "claude-sonnet-5-5"
+    },
+    "cost": {
+      "total": 0.0081
+    }
+  }
+}

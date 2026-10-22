@@ -1,0 +1,1170 @@
+{
+  "summary": {
+    "mode": "code only",
+    "runs_evaluated": 20,
+    "planted_caught": "9 of 10",
+    "planted_unsure": 1,
+    "false_alarms_on_clean": "0 of 10",
+    "clean_unsure": 0,
+    "claims_total": 53,
+    "claims_checked_by_code": "52 (98%)",
+    "claims_sent_to_llm": "0 (0%)",
+    "claims_left_unresolved": 1,
+    "added_latency_per_run_s": 0.003,
+    "added_cost_per_run_usd": 0.0,
+    "llm_model": null
+  },
+  "runs": [
+    {
+      "run_id": "num-01",
+      "workflow": "Numbers agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "5",
+          "kind": "number",
+          "sentence": "There were 5 orders this week totalling $1,842.50.",
+          "verdict": "match",
+          "expected": 5.0,
+          "actual": "5",
+          "span_id": "num-01-tool-0",
+          "evidence": "count of orders",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$1,842.50",
+          "kind": "number",
+          "sentence": "There were 5 orders this week totalling $1,842.50.",
+          "verdict": "match",
+          "expected": 1842.5,
+          "actual": "$1,842.50",
+          "span_id": "num-01-tool-0",
+          "evidence": "sum of orders[].amount",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$368.50",
+          "kind": "number",
+          "sentence": "The average order was $368.50, and 3 orders have shipped.",
+          "verdict": "match",
+          "expected": 368.5,
+          "actual": "$368.50",
+          "span_id": "num-01-tool-0",
+          "evidence": "average of orders[].amount",
+          "checked_by": "code"
+        },
+        {
+          "claim": "3",
+          "kind": "number",
+          "sentence": "The average order was $368.50, and 3 orders have shipped.",
+          "verdict": "match",
+          "expected": 3.0,
+          "actual": "3",
+          "span_id": "num-01-tool-0",
+          "evidence": "average of orders[].qty",
+          "checked_by": "code"
+        },
+        {
+          "claim": "shipped",
+          "kind": "status",
+          "sentence": "The average order was $368.50, and 3 orders have shipped.",
+          "verdict": "match",
+          "expected": "shipped",
+          "actual": "shipped",
+          "span_id": "num-01-tool-0",
+          "evidence": "orders[].status",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 5,
+        "tool_calls": 1,
+        "checked_by_code": 5,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.01,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    },
+    {
+      "run_id": "num-02",
+      "workflow": "Numbers agent",
+      "verdict": "flag",
+      "flags": [
+        {
+          "claim": "7",
+          "kind": "number",
+          "sentence": "There were 7 orders this week totalling $1,842.50.",
+          "verdict": "mismatch",
+          "expected": 5.0,
+          "actual": "7",
+          "span_id": "num-02-tool-0",
+          "evidence": "count of orders",
+          "checked_by": "code"
+        }
+      ],
+      "findings": [
+        {
+          "claim": "7",
+          "kind": "number",
+          "sentence": "There were 7 orders this week totalling $1,842.50.",
+          "verdict": "mismatch",
+          "expected": 5.0,
+          "actual": "7",
+          "span_id": "num-02-tool-0",
+          "evidence": "count of orders",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$1,842.50",
+          "kind": "number",
+          "sentence": "There were 7 orders this week totalling $1,842.50.",
+          "verdict": "match",
+          "expected": 1842.5,
+          "actual": "$1,842.50",
+          "span_id": "num-02-tool-0",
+          "evidence": "sum of orders[].amount",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 2,
+        "tool_calls": 1,
+        "checked_by_code": 2,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.003,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "num-03",
+      "workflow": "Numbers agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "$12,000",
+          "kind": "number",
+          "sentence": "Q3 revenue was about $12,000 across 48 orders, with a refund rate of 3.2%.",
+          "verdict": "match",
+          "expected": 11870.25,
+          "actual": "$12,000",
+          "span_id": "num-03-tool-0",
+          "evidence": "total_revenue",
+          "checked_by": "code"
+        },
+        {
+          "claim": "48",
+          "kind": "number",
+          "sentence": "Q3 revenue was about $12,000 across 48 orders, with a refund rate of 3.2%.",
+          "verdict": "match",
+          "expected": 48.0,
+          "actual": "48",
+          "span_id": "num-03-tool-0",
+          "evidence": "order_count",
+          "checked_by": "code"
+        },
+        {
+          "claim": "3.2%",
+          "kind": "number",
+          "sentence": "Q3 revenue was about $12,000 across 48 orders, with a refund rate of 3.2%.",
+          "verdict": "match",
+          "expected": 0.032,
+          "actual": "3.2%",
+          "span_id": "num-03-tool-0",
+          "evidence": "refund_rate",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 3,
+        "tool_calls": 1,
+        "checked_by_code": 3,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.004,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    },
+    {
+      "run_id": "num-04",
+      "workflow": "Numbers agent",
+      "verdict": "flag",
+      "flags": [
+        {
+          "claim": "$14,250",
+          "kind": "number",
+          "sentence": "Q3 total revenue came to $14,250 across 48 orders.",
+          "verdict": "mismatch",
+          "expected": 11870.25,
+          "actual": "$14,250",
+          "span_id": "num-04-tool-0",
+          "evidence": "total_revenue",
+          "checked_by": "code"
+        }
+      ],
+      "findings": [
+        {
+          "claim": "$14,250",
+          "kind": "number",
+          "sentence": "Q3 total revenue came to $14,250 across 48 orders.",
+          "verdict": "mismatch",
+          "expected": 11870.25,
+          "actual": "$14,250",
+          "span_id": "num-04-tool-0",
+          "evidence": "total_revenue",
+          "checked_by": "code"
+        },
+        {
+          "claim": "48",
+          "kind": "number",
+          "sentence": "Q3 total revenue came to $14,250 across 48 orders.",
+          "verdict": "match",
+          "expected": 48.0,
+          "actual": "48",
+          "span_id": "num-04-tool-0",
+          "evidence": "order_count",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 2,
+        "tool_calls": 1,
+        "checked_by_code": 2,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.002,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "num-05",
+      "workflow": "Numbers agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "$49",
+          "kind": "number",
+          "sentence": "The Pro plan costs $49 per month and the Team plan is $199 per month.",
+          "verdict": "match",
+          "expected": 49.0,
+          "actual": "$49",
+          "span_id": "num-05-tool-0",
+          "evidence": "plans[].price_monthly",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$199",
+          "kind": "number",
+          "sentence": "The Pro plan costs $49 per month and the Team plan is $199 per month.",
+          "verdict": "match",
+          "expected": 199.0,
+          "actual": "$199",
+          "span_id": "num-05-tool-0",
+          "evidence": "plans[].price_monthly",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 2,
+        "tool_calls": 1,
+        "checked_by_code": 2,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.003,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    },
+    {
+      "run_id": "num-06",
+      "workflow": "Numbers agent",
+      "verdict": "flag",
+      "flags": [
+        {
+          "claim": "$59",
+          "kind": "number",
+          "sentence": "The Starter plan is $19 per month and the Pro plan costs $59 per month.",
+          "verdict": "mismatch",
+          "expected": 49.0,
+          "actual": "$59",
+          "span_id": "num-06-tool-0",
+          "evidence": "plans[].price_monthly",
+          "checked_by": "code"
+        }
+      ],
+      "findings": [
+        {
+          "claim": "$19",
+          "kind": "number",
+          "sentence": "The Starter plan is $19 per month and the Pro plan costs $59 per month.",
+          "verdict": "match",
+          "expected": 19.0,
+          "actual": "$19",
+          "span_id": "num-06-tool-0",
+          "evidence": "min of plans[].price_monthly",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$59",
+          "kind": "number",
+          "sentence": "The Starter plan is $19 per month and the Pro plan costs $59 per month.",
+          "verdict": "mismatch",
+          "expected": 49.0,
+          "actual": "$59",
+          "span_id": "num-06-tool-0",
+          "evidence": "plans[].price_monthly",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 2,
+        "tool_calls": 1,
+        "checked_by_code": 2,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.002,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "num-07",
+      "workflow": "Numbers agent",
+      "verdict": "flag",
+      "flags": [
+        {
+          "claim": "$412",
+          "kind": "number",
+          "sentence": "This week's 5 orders had an average order value of $412.",
+          "verdict": "mismatch",
+          "expected": 368.5,
+          "actual": "$412",
+          "span_id": "num-07-tool-0",
+          "evidence": "average of orders[].amount",
+          "checked_by": "code"
+        }
+      ],
+      "findings": [
+        {
+          "claim": "5",
+          "kind": "number",
+          "sentence": "This week's 5 orders had an average order value of $412.",
+          "verdict": "match",
+          "expected": 5.0,
+          "actual": "5",
+          "span_id": "num-07-tool-0",
+          "evidence": "count of orders",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$412",
+          "kind": "number",
+          "sentence": "This week's 5 orders had an average order value of $412.",
+          "verdict": "mismatch",
+          "expected": 368.5,
+          "actual": "$412",
+          "span_id": "num-07-tool-0",
+          "evidence": "average of orders[].amount",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 2,
+        "tool_calls": 1,
+        "checked_by_code": 2,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.004,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "num-08",
+      "workflow": "Numbers agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "$86,400",
+          "kind": "number",
+          "sentence": "Total revenue across the three regions was $86,400: North $31,200, South $27,900 and West $27,300.",
+          "verdict": "match",
+          "expected": 86400.0,
+          "actual": "$86,400",
+          "span_id": "num-08-tool-0+num-08-tool-1+num-08-tool-2",
+          "evidence": "sum of all revenue",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$31,200",
+          "kind": "number",
+          "sentence": "Total revenue across the three regions was $86,400: North $31,200, South $27,900 and West $27,300.",
+          "verdict": "match",
+          "expected": 31200.0,
+          "actual": "$31,200",
+          "span_id": "num-08-tool-0",
+          "evidence": "revenue",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$27,900",
+          "kind": "number",
+          "sentence": "Total revenue across the three regions was $86,400: North $31,200, South $27,900 and West $27,300.",
+          "verdict": "match",
+          "expected": 27900.0,
+          "actual": "$27,900",
+          "span_id": "num-08-tool-1",
+          "evidence": "revenue",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$27,300",
+          "kind": "number",
+          "sentence": "Total revenue across the three regions was $86,400: North $31,200, South $27,900 and West $27,300.",
+          "verdict": "match",
+          "expected": 27300.0,
+          "actual": "$27,300",
+          "span_id": "num-08-tool-2",
+          "evidence": "revenue",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 4,
+        "tool_calls": 3,
+        "checked_by_code": 4,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.003,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    },
+    {
+      "run_id": "look-01",
+      "workflow": "Lookup agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "2026-03-07",
+          "kind": "date",
+          "sentence": "Order ORD-1042 for Acme Corp shipped on March 3, 2026 and should arrive by 2026-03-07.",
+          "verdict": "match",
+          "expected": "2026-03-07",
+          "actual": "2026-03-07",
+          "span_id": "look-01-tool-0",
+          "evidence": "$.eta",
+          "checked_by": "code"
+        },
+        {
+          "claim": "March 3, 2026",
+          "kind": "date",
+          "sentence": "Order ORD-1042 for Acme Corp shipped on March 3, 2026 and should arrive by 2026-03-07.",
+          "verdict": "match",
+          "expected": "2026-03-03",
+          "actual": "March 3, 2026",
+          "span_id": "look-01-tool-0",
+          "evidence": "$.shipped_date",
+          "checked_by": "code"
+        },
+        {
+          "claim": "shipped",
+          "kind": "status",
+          "sentence": "Order ORD-1042 for Acme Corp shipped on March 3, 2026 and should arrive by 2026-03-07.",
+          "verdict": "match",
+          "expected": "shipped",
+          "actual": "shipped",
+          "span_id": "look-01-tool-0",
+          "evidence": "$.status",
+          "checked_by": "code"
+        },
+        {
+          "claim": "Acme Corp",
+          "kind": "name",
+          "sentence": "Order ORD-1042 for Acme Corp shipped on March 3, 2026 and should arrive by 2026-03-07.",
+          "verdict": "match",
+          "expected": "Acme Corp",
+          "actual": "Acme Corp",
+          "span_id": "look-01-tool-0",
+          "evidence": "customer",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 4,
+        "tool_calls": 1,
+        "checked_by_code": 4,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.003,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    },
+    {
+      "run_id": "look-02",
+      "workflow": "Lookup agent",
+      "verdict": "flag",
+      "flags": [
+        {
+          "claim": "delivered",
+          "kind": "status",
+          "sentence": "Order ORD-2210 for Globex has been delivered.",
+          "verdict": "mismatch",
+          "expected": "processing",
+          "actual": "delivered",
+          "span_id": "look-02-tool-0",
+          "evidence": "$.status",
+          "checked_by": "code"
+        }
+      ],
+      "findings": [
+        {
+          "claim": "delivered",
+          "kind": "status",
+          "sentence": "Order ORD-2210 for Globex has been delivered.",
+          "verdict": "mismatch",
+          "expected": "processing",
+          "actual": "delivered",
+          "span_id": "look-02-tool-0",
+          "evidence": "$.status",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 1,
+        "tool_calls": 1,
+        "checked_by_code": 1,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.002,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "look-03",
+      "workflow": "Lookup agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "Dana Kim",
+          "kind": "name",
+          "sentence": "Dana Kim is the account manager for Globex.",
+          "verdict": "match",
+          "expected": "Dana Kim",
+          "actual": "Dana Kim",
+          "span_id": "look-03-tool-0",
+          "evidence": "manager",
+          "checked_by": "code"
+        },
+        {
+          "claim": "June 30, 2026",
+          "kind": "date",
+          "sentence": "The contract renews on June 30, 2026 and covers 120 seats.",
+          "verdict": "match",
+          "expected": "2026-06-30",
+          "actual": "June 30, 2026",
+          "span_id": "look-03-tool-0",
+          "evidence": "renewal_date",
+          "checked_by": "code"
+        },
+        {
+          "claim": "120",
+          "kind": "number",
+          "sentence": "The contract renews on June 30, 2026 and covers 120 seats.",
+          "verdict": "match",
+          "expected": 120.0,
+          "actual": "120",
+          "span_id": "look-03-tool-0",
+          "evidence": "seats",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 3,
+        "tool_calls": 1,
+        "checked_by_code": 3,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.003,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    },
+    {
+      "run_id": "look-04",
+      "workflow": "Lookup agent",
+      "verdict": "flag",
+      "flags": [
+        {
+          "claim": "Priya Patel",
+          "kind": "name",
+          "sentence": "Priya Patel is the account manager for Initech, which has 45 seats.",
+          "verdict": "mismatch",
+          "expected": "Marcus Lee",
+          "actual": "Priya Patel",
+          "span_id": "look-04-tool-0",
+          "evidence": "$.manager",
+          "checked_by": "code"
+        }
+      ],
+      "findings": [
+        {
+          "claim": "45",
+          "kind": "number",
+          "sentence": "Priya Patel is the account manager for Initech, which has 45 seats.",
+          "verdict": "match",
+          "expected": 45.0,
+          "actual": "45",
+          "span_id": "look-04-tool-0",
+          "evidence": "$.seats",
+          "checked_by": "code"
+        },
+        {
+          "claim": "Priya Patel",
+          "kind": "name",
+          "sentence": "Priya Patel is the account manager for Initech, which has 45 seats.",
+          "verdict": "mismatch",
+          "expected": "Marcus Lee",
+          "actual": "Priya Patel",
+          "span_id": "look-04-tool-0",
+          "evidence": "$.manager",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 2,
+        "tool_calls": 1,
+        "checked_by_code": 2,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.002,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "look-05",
+      "workflow": "Lookup agent",
+      "verdict": "flag",
+      "flags": [
+        {
+          "claim": "April 12, 2026",
+          "kind": "date",
+          "sentence": "Ticket TCK-88 (SSO login loop) is open and due on April 12, 2026.",
+          "verdict": "mismatch",
+          "expected": "2026-04-15",
+          "actual": "April 12, 2026",
+          "span_id": "look-05-tool-0",
+          "evidence": "$.due_date",
+          "checked_by": "code"
+        }
+      ],
+      "findings": [
+        {
+          "claim": "April 12, 2026",
+          "kind": "date",
+          "sentence": "Ticket TCK-88 (SSO login loop) is open and due on April 12, 2026.",
+          "verdict": "mismatch",
+          "expected": "2026-04-15",
+          "actual": "April 12, 2026",
+          "span_id": "look-05-tool-0",
+          "evidence": "$.due_date",
+          "checked_by": "code"
+        },
+        {
+          "claim": "open",
+          "kind": "status",
+          "sentence": "Ticket TCK-88 (SSO login loop) is open and due on April 12, 2026.",
+          "verdict": "match",
+          "expected": "open",
+          "actual": "open",
+          "span_id": "look-05-tool-0",
+          "evidence": "$.status",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 2,
+        "tool_calls": 1,
+        "checked_by_code": 2,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.003,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "look-06",
+      "workflow": "Lookup agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "2026-02-18",
+          "kind": "date",
+          "sentence": "The background check for Lena Fischer is complete and came back clear on 2026-02-18.",
+          "verdict": "match",
+          "expected": "2026-02-18",
+          "actual": "2026-02-18",
+          "span_id": "look-06-tool-0",
+          "evidence": "$.completed_at",
+          "checked_by": "code"
+        },
+        {
+          "claim": "complete",
+          "kind": "status",
+          "sentence": "The background check for Lena Fischer is complete and came back clear on 2026-02-18.",
+          "verdict": "match",
+          "expected": "complete",
+          "actual": "complete",
+          "span_id": "look-06-tool-0",
+          "evidence": "$.status",
+          "checked_by": "code"
+        },
+        {
+          "claim": "clear",
+          "kind": "status",
+          "sentence": "The background check for Lena Fischer is complete and came back clear on 2026-02-18.",
+          "verdict": "match",
+          "expected": "clear",
+          "actual": "clear",
+          "span_id": "look-06-tool-0",
+          "evidence": "$.result",
+          "checked_by": "code"
+        },
+        {
+          "claim": "Lena Fischer",
+          "kind": "name",
+          "sentence": "The background check for Lena Fischer is complete and came back clear on 2026-02-18.",
+          "verdict": "match",
+          "expected": "Lena Fischer",
+          "actual": "Lena Fischer",
+          "span_id": "look-06-tool-0",
+          "evidence": "candidate",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 4,
+        "tool_calls": 1,
+        "checked_by_code": 4,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.001,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    },
+    {
+      "run_id": "look-07",
+      "workflow": "Lookup agent",
+      "verdict": "flag",
+      "flags": [
+        {
+          "claim": "clear",
+          "kind": "status",
+          "sentence": "The background check for Omar Haddad came back clear.",
+          "verdict": "mismatch",
+          "expected": "consider",
+          "actual": "clear",
+          "span_id": "look-07-tool-0",
+          "evidence": "$.result",
+          "checked_by": "code"
+        }
+      ],
+      "findings": [
+        {
+          "claim": "clear",
+          "kind": "status",
+          "sentence": "The background check for Omar Haddad came back clear.",
+          "verdict": "mismatch",
+          "expected": "consider",
+          "actual": "clear",
+          "span_id": "look-07-tool-0",
+          "evidence": "$.result",
+          "checked_by": "code"
+        },
+        {
+          "claim": "Omar Haddad",
+          "kind": "name",
+          "sentence": "The background check for Omar Haddad came back clear.",
+          "verdict": "match",
+          "expected": "Omar Haddad",
+          "actual": "Omar Haddad",
+          "span_id": "look-07-tool-0",
+          "evidence": "candidate",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 2,
+        "tool_calls": 1,
+        "checked_by_code": 2,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.001,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "text-01",
+      "workflow": "Text agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "$42 million",
+          "kind": "number",
+          "sentence": "Northwind Robotics raised $42 million in a Series B led by Harbor Ventures and has about 300 employees.",
+          "verdict": "match",
+          "expected": 42000000.0,
+          "actual": "$42 million",
+          "span_id": "text-01-tool-0",
+          "evidence": "results[].content (text: '$42 million')",
+          "checked_by": "code"
+        },
+        {
+          "claim": "300",
+          "kind": "number",
+          "sentence": "Northwind Robotics raised $42 million in a Series B led by Harbor Ventures and has about 300 employees.",
+          "verdict": "match",
+          "expected": 310.0,
+          "actual": "300",
+          "span_id": "text-01-tool-0",
+          "evidence": "results[].content (text: '310')",
+          "checked_by": "code"
+        },
+        {
+          "claim": "Northwind Robotics",
+          "kind": "name",
+          "sentence": "Northwind Robotics raised $42 million in a Series B led by Harbor Ventures and has about 300 employees.",
+          "verdict": "match",
+          "expected": "Northwind Robotics funding",
+          "actual": "Northwind Robotics",
+          "span_id": "text-01-tool-0",
+          "evidence": "query",
+          "checked_by": "code"
+        },
+        {
+          "claim": "Harbor Ventures",
+          "kind": "name",
+          "sentence": "Northwind Robotics raised $42 million in a Series B led by Harbor Ventures and has about 300 employees.",
+          "verdict": "match",
+          "expected": "Northwind Robotics announced on September 9, 2026 that it raised $42 million in Series B funding led by Harbor Ventures. The warehouse-automation startup now has 310 employees and plans to open a second plant in Ohio next year.",
+          "actual": "Harbor Ventures",
+          "span_id": "text-01-tool-0",
+          "evidence": "results[].content",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 4,
+        "tool_calls": 1,
+        "checked_by_code": 4,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.003,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    },
+    {
+      "run_id": "text-02",
+      "workflow": "Text agent",
+      "verdict": "flag",
+      "flags": [
+        {
+          "claim": "$52 million",
+          "kind": "number",
+          "sentence": "Northwind Robotics raised $52 million in Series B funding, announced on September 9, 2026.",
+          "verdict": "mismatch",
+          "expected": 42000000.0,
+          "actual": "$52 million",
+          "span_id": "text-02-tool-0",
+          "evidence": "results[].content (text: '$42 million')",
+          "checked_by": "code"
+        }
+      ],
+      "findings": [
+        {
+          "claim": "September 9, 2026",
+          "kind": "date",
+          "sentence": "Northwind Robotics raised $52 million in Series B funding, announced on September 9, 2026.",
+          "verdict": "match",
+          "expected": "2026-09-09",
+          "actual": "September 9, 2026",
+          "span_id": "text-02-tool-0",
+          "evidence": "results[].content (text)",
+          "checked_by": "code"
+        },
+        {
+          "claim": "$52 million",
+          "kind": "number",
+          "sentence": "Northwind Robotics raised $52 million in Series B funding, announced on September 9, 2026.",
+          "verdict": "mismatch",
+          "expected": 42000000.0,
+          "actual": "$52 million",
+          "span_id": "text-02-tool-0",
+          "evidence": "results[].content (text: '$42 million')",
+          "checked_by": "code"
+        },
+        {
+          "claim": "Northwind Robotics",
+          "kind": "name",
+          "sentence": "Northwind Robotics raised $52 million in Series B funding, announced on September 9, 2026.",
+          "verdict": "match",
+          "expected": "Northwind Robotics funding",
+          "actual": "Northwind Robotics",
+          "span_id": "text-02-tool-0",
+          "evidence": "query",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 3,
+        "tool_calls": 1,
+        "checked_by_code": 3,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.003,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "text-03",
+      "workflow": "Text agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "March 14, 2026",
+          "kind": "date",
+          "sentence": "Riverton's population grew 4.1% to around 812,000 residents, per a report released March 14, 2026.",
+          "verdict": "match",
+          "expected": "2026-03-14",
+          "actual": "March 14, 2026",
+          "span_id": "text-03-tool-0",
+          "evidence": "results[].content (text)",
+          "checked_by": "code"
+        },
+        {
+          "claim": "4.1%",
+          "kind": "number",
+          "sentence": "Riverton's population grew 4.1% to around 812,000 residents, per a report released March 14, 2026.",
+          "verdict": "match",
+          "expected": 4.1,
+          "actual": "4.1%",
+          "span_id": "text-03-tool-0",
+          "evidence": "results[].content (text: '4.1%')",
+          "checked_by": "code"
+        },
+        {
+          "claim": "812,000",
+          "kind": "number",
+          "sentence": "Riverton's population grew 4.1% to around 812,000 residents, per a report released March 14, 2026.",
+          "verdict": "match",
+          "expected": 812000.0,
+          "actual": "812,000",
+          "span_id": "text-03-tool-0",
+          "evidence": "results[].content (text: '812,000')",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 3,
+        "tool_calls": 1,
+        "checked_by_code": 3,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.006,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    },
+    {
+      "run_id": "text-04",
+      "workflow": "Text agent",
+      "verdict": "unsure",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "Northwind Robotics",
+          "kind": "name",
+          "sentence": "Northwind Robotics' Series B was led by Summit Capital.",
+          "verdict": "match",
+          "expected": "Northwind Robotics funding",
+          "actual": "Northwind Robotics",
+          "span_id": "text-04-tool-0",
+          "evidence": "query",
+          "checked_by": "code"
+        },
+        {
+          "claim": "Summit Capital",
+          "kind": "name",
+          "sentence": "Northwind Robotics' Series B was led by Summit Capital.",
+          "verdict": "unverified",
+          "expected": null,
+          "actual": "Summit Capital",
+          "span_id": null,
+          "evidence": "",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 2,
+        "tool_calls": 1,
+        "checked_by_code": 1,
+        "sent_to_llm": 0,
+        "unresolved": 1,
+        "latency_s": 0.005,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "flag"
+    },
+    {
+      "run_id": "text-05",
+      "workflow": "Text agent",
+      "verdict": "pass",
+      "flags": [],
+      "findings": [
+        {
+          "claim": "Northwind Robotics",
+          "kind": "name",
+          "sentence": "Northwind Robotics plans to open a second plant in Ohio next year.",
+          "verdict": "match",
+          "expected": "Northwind Robotics funding",
+          "actual": "Northwind Robotics",
+          "span_id": "text-05-tool-0",
+          "evidence": "query",
+          "checked_by": "code"
+        }
+      ],
+      "stats": {
+        "claims": 1,
+        "tool_calls": 1,
+        "checked_by_code": 1,
+        "sent_to_llm": 0,
+        "unresolved": 0,
+        "latency_s": 0.003,
+        "llm": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "calls": 0
+        }
+      },
+      "expected": "pass"
+    }
+  ]
+}

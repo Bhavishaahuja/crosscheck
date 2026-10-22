@@ -1,0 +1,76 @@
+{
+  "data": {
+    "runId": "num-05",
+    "workflowId": "wf-numbers",
+    "status": "completed",
+    "level": "info",
+    "trigger": "api",
+    "startedAt": "2026-10-22T14:00:00.000Z",
+    "endedAt": "2026-10-22T14:00:04.000Z",
+    "totalDurationMs": 4000,
+    "workflow": {
+      "id": "wf-numbers",
+      "name": "Numbers agent"
+    },
+    "traceSpans": [
+      {
+        "id": "num-05-start",
+        "name": "Start",
+        "type": "starter",
+        "status": "success",
+        "output": {
+          "input": "user question"
+        }
+      },
+      {
+        "id": "num-05-agent",
+        "name": "Agent 1",
+        "type": "agent",
+        "status": "success",
+        "duration": 3600,
+        "toolCalls": [
+          {
+            "id": "num-05-tool-0",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "list_plans",
+            "arguments": {},
+            "result": {
+              "plans": [
+                {
+                  "plan": "Starter",
+                  "price_monthly": 19
+                },
+                {
+                  "plan": "Pro",
+                  "price_monthly": 49
+                },
+                {
+                  "plan": "Team",
+                  "price_monthly": 199
+                }
+              ]
+            }
+          }
+        ],
+        "output": {
+          "content": "The Pro plan costs $49 per month and the Team plan is $199 per month.",
+          "model": "claude-sonnet-5-5"
+        },
+        "tokens": {
+          "input": 1500,
+          "output": 120,
+          "total": 1620
+        }
+      }
+    ],
+    "finalOutput": {
+      "content": "The Pro plan costs $49 per month and the Team plan is $199 per month.",
+      "model": "claude-sonnet-5-5"
+    },
+    "cost": {
+      "total": 0.0081
+    }
+  }
+}

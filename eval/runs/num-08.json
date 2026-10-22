@@ -1,0 +1,94 @@
+{
+  "data": {
+    "runId": "num-08",
+    "workflowId": "wf-numbers",
+    "status": "completed",
+    "level": "info",
+    "trigger": "api",
+    "startedAt": "2026-10-22T14:00:00.000Z",
+    "endedAt": "2026-10-22T14:00:04.000Z",
+    "totalDurationMs": 4000,
+    "workflow": {
+      "id": "wf-numbers",
+      "name": "Numbers agent"
+    },
+    "traceSpans": [
+      {
+        "id": "num-08-start",
+        "name": "Start",
+        "type": "starter",
+        "status": "success",
+        "output": {
+          "input": "user question"
+        }
+      },
+      {
+        "id": "num-08-agent",
+        "name": "Agent 1",
+        "type": "agent",
+        "status": "success",
+        "duration": 3600,
+        "toolCalls": [
+          {
+            "id": "num-08-tool-0",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "get_region_revenue",
+            "arguments": {
+              "region": "North"
+            },
+            "result": {
+              "region": "North",
+              "revenue": 31200
+            }
+          },
+          {
+            "id": "num-08-tool-1",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "get_region_revenue",
+            "arguments": {
+              "region": "South"
+            },
+            "result": {
+              "region": "South",
+              "revenue": 27900
+            }
+          },
+          {
+            "id": "num-08-tool-2",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "get_region_revenue",
+            "arguments": {
+              "region": "West"
+            },
+            "result": {
+              "region": "West",
+              "revenue": 27300
+            }
+          }
+        ],
+        "output": {
+          "content": "Total revenue across the three regions was $86,400: North $31,200, South $27,900 and West $27,300.",
+          "model": "claude-sonnet-5-5"
+        },
+        "tokens": {
+          "input": 1500,
+          "output": 120,
+          "total": 1620
+        }
+      }
+    ],
+    "finalOutput": {
+      "content": "Total revenue across the three regions was $86,400: North $31,200, South $27,900 and West $27,300.",
+      "model": "claude-sonnet-5-5"
+    },
+    "cost": {
+      "total": 0.0081
+    }
+  }
+}

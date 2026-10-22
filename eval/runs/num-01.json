@@ -1,0 +1,101 @@
+{
+  "data": {
+    "runId": "num-01",
+    "workflowId": "wf-numbers",
+    "status": "completed",
+    "level": "info",
+    "trigger": "api",
+    "startedAt": "2026-10-22T14:00:00.000Z",
+    "endedAt": "2026-10-22T14:00:04.000Z",
+    "totalDurationMs": 4000,
+    "workflow": {
+      "id": "wf-numbers",
+      "name": "Numbers agent"
+    },
+    "traceSpans": [
+      {
+        "id": "num-01-start",
+        "name": "Start",
+        "type": "starter",
+        "status": "success",
+        "output": {
+          "input": "user question"
+        }
+      },
+      {
+        "id": "num-01-agent",
+        "name": "Agent 1",
+        "type": "agent",
+        "status": "success",
+        "duration": 3600,
+        "toolCalls": [
+          {
+            "id": "num-01-tool-0",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "get_orders",
+            "arguments": {
+              "week": "2026-W40"
+            },
+            "result": {
+              "orders": [
+                {
+                  "order_id": "ORD-3101",
+                  "customer": "Acme Corp",
+                  "amount": 412.0,
+                  "qty": 4,
+                  "status": "shipped"
+                },
+                {
+                  "order_id": "ORD-3102",
+                  "customer": "Globex",
+                  "amount": 289.5,
+                  "qty": 2,
+                  "status": "shipped"
+                },
+                {
+                  "order_id": "ORD-3103",
+                  "customer": "Initech",
+                  "amount": 515.25,
+                  "qty": 5,
+                  "status": "processing"
+                },
+                {
+                  "order_id": "ORD-3104",
+                  "customer": "Umbrella",
+                  "amount": 198.75,
+                  "qty": 1,
+                  "status": "shipped"
+                },
+                {
+                  "order_id": "ORD-3105",
+                  "customer": "Hooli",
+                  "amount": 427.0,
+                  "qty": 3,
+                  "status": "delivered"
+                }
+              ]
+            }
+          }
+        ],
+        "output": {
+          "content": "There were 5 orders this week totalling $1,842.50. The average order was $368.50, and 3 orders have shipped.",
+          "model": "claude-sonnet-5-5"
+        },
+        "tokens": {
+          "input": 1500,
+          "output": 120,
+          "total": 1620
+        }
+      }
+    ],
+    "finalOutput": {
+      "content": "There were 5 orders this week totalling $1,842.50. The average order was $368.50, and 3 orders have shipped.",
+      "model": "claude-sonnet-5-5"
+    },
+    "cost": {
+      "total": 0.0081
+    }
+  }
+}

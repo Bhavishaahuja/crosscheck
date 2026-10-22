@@ -1,0 +1,77 @@
+{
+  "data": {
+    "runId": "text-02",
+    "workflowId": "wf-text",
+    "status": "completed",
+    "level": "info",
+    "trigger": "api",
+    "startedAt": "2026-10-22T14:00:00.000Z",
+    "endedAt": "2026-10-22T14:00:04.000Z",
+    "totalDurationMs": 4000,
+    "workflow": {
+      "id": "wf-text",
+      "name": "Text agent"
+    },
+    "traceSpans": [
+      {
+        "id": "text-02-start",
+        "name": "Start",
+        "type": "starter",
+        "status": "success",
+        "output": {
+          "input": "user question"
+        }
+      },
+      {
+        "id": "text-02-agent",
+        "name": "Agent 1",
+        "type": "agent",
+        "status": "success",
+        "duration": 3600,
+        "toolCalls": [
+          {
+            "id": "text-02-tool-0",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "tavily_search",
+            "arguments": {
+              "query": "Northwind Robotics funding"
+            },
+            "result": {
+              "query": "Northwind Robotics funding",
+              "results": [
+                {
+                  "title": "Northwind Robotics closes Series B",
+                  "url": "https://example.com/northwind-series-b",
+                  "content": "Northwind Robotics announced on September 9, 2026 that it raised $42 million in Series B funding led by Harbor Ventures. The warehouse-automation startup now has 310 employees and plans to open a second plant in Ohio next year."
+                },
+                {
+                  "title": "Robotics funding roundup",
+                  "url": "https://example.com/roundup",
+                  "content": "Other deals this week included a $12 million seed round for Lumen Arms."
+                }
+              ]
+            }
+          }
+        ],
+        "output": {
+          "content": "Northwind Robotics raised $52 million in Series B funding, announced on September 9, 2026.",
+          "model": "claude-sonnet-5-5"
+        },
+        "tokens": {
+          "input": 1500,
+          "output": 120,
+          "total": 1620
+        }
+      }
+    ],
+    "finalOutput": {
+      "content": "Northwind Robotics raised $52 million in Series B funding, announced on September 9, 2026.",
+      "model": "claude-sonnet-5-5"
+    },
+    "cost": {
+      "total": 0.0081
+    }
+  }
+}

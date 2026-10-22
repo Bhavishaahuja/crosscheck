@@ -1,0 +1,21 @@
+run_id,workflow,expected_verdict,planted_mismatch
+num-01,Numbers agent,pass,
+num-02,Numbers agent,flag,order count 7 vs 5
+num-03,Numbers agent,pass,
+num-04,Numbers agent,flag,"revenue 14,250 vs 11,870.25"
+num-05,Numbers agent,pass,
+num-06,Numbers agent,flag,Pro price 59 vs 49
+num-07,Numbers agent,flag,average 412 vs 368.50
+num-08,Numbers agent,pass,
+look-01,Lookup agent,pass,
+look-02,Lookup agent,flag,status delivered vs processing
+look-03,Lookup agent,pass,
+look-04,Lookup agent,flag,manager Priya Patel vs Marcus Lee
+look-05,Lookup agent,flag,due date Apr 12 vs Apr 15
+look-06,Lookup agent,pass,
+look-07,Lookup agent,flag,result clear vs consider
+text-01,Text agent,pass,
+text-02,Text agent,flag,raise 52M vs 42M
+text-03,Text agent,pass,
+text-04,Text agent,flag,lead investor Summit Capital vs Harbor Ventures
+text-05,Text agent,pass,

@@ -1,0 +1,69 @@
+{
+  "data": {
+    "runId": "num-04",
+    "workflowId": "wf-numbers",
+    "status": "completed",
+    "level": "info",
+    "trigger": "api",
+    "startedAt": "2026-10-22T14:00:00.000Z",
+    "endedAt": "2026-10-22T14:00:04.000Z",
+    "totalDurationMs": 4000,
+    "workflow": {
+      "id": "wf-numbers",
+      "name": "Numbers agent"
+    },
+    "traceSpans": [
+      {
+        "id": "num-04-start",
+        "name": "Start",
+        "type": "starter",
+        "status": "success",
+        "output": {
+          "input": "user question"
+        }
+      },
+      {
+        "id": "num-04-agent",
+        "name": "Agent 1",
+        "type": "agent",
+        "status": "success",
+        "duration": 3600,
+        "toolCalls": [
+          {
+            "id": "num-04-tool-0",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "get_sales_summary",
+            "arguments": {
+              "period": "2026-Q3"
+            },
+            "result": {
+              "period": "2026-Q3",
+              "total_revenue": 11870.25,
+              "order_count": 48,
+              "refund_rate": 0.032,
+              "generated_at": "2026-10-01T08:00:00Z"
+            }
+          }
+        ],
+        "output": {
+          "content": "Q3 total revenue came to $14,250 across 48 orders.",
+          "model": "claude-sonnet-5-5"
+        },
+        "tokens": {
+          "input": 1500,
+          "output": 120,
+          "total": 1620
+        }
+      }
+    ],
+    "finalOutput": {
+      "content": "Q3 total revenue came to $14,250 across 48 orders.",
+      "model": "claude-sonnet-5-5"
+    },
+    "cost": {
+      "total": 0.0081
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "data": {
+    "runId": "text-03",
+    "workflowId": "wf-text",
+    "status": "completed",
+    "level": "info",
+    "trigger": "api",
+    "startedAt": "2026-10-22T14:00:00.000Z",
+    "endedAt": "2026-10-22T14:00:04.000Z",
+    "totalDurationMs": 4000,
+    "workflow": {
+      "id": "wf-text",
+      "name": "Text agent"
+    },
+    "traceSpans": [
+      {
+        "id": "text-03-start",
+        "name": "Start",
+        "type": "starter",
+        "status": "success",
+        "output": {
+          "input": "user question"
+        }
+      },
+      {
+        "id": "text-03-agent",
+        "name": "Agent 1",
+        "type": "agent",
+        "status": "success",
+        "duration": 3600,
+        "toolCalls": [
+          {
+            "id": "text-03-tool-0",
+            "startTime": "2026-10-22T14:00:00.000Z",
+            "endTime": "2026-10-22T14:00:00.000Z",
+            "duration": 180,
+            "name": "tavily_search",
+            "arguments": {
+              "query": "Riverton population 2026"
+            },
+            "result": {
+              "query": "Riverton population 2026",
+              "results": [
+                {
+                  "title": "Riverton census update",
+                  "url": "https://example.com/riverton",
+                  "content": "Riverton's population grew 4.1% over the past year to roughly 812,000 residents, according to the county planning office's report released March 14, 2026."
+                }
+              ]
+            }
+          }
+        ],
+        "output": {
+          "content": "Riverton's population grew 4.1% to around 812,000 residents, per a report released March 14, 2026.",
+          "model": "claude-sonnet-5-5"
+        },
+        "tokens": {
+          "input": 1500,
+          "output": 120,
+          "total": 1620
+        }
+      }
+    ],
+    "finalOutput": {
+      "content": "Riverton's population grew 4.1% to around 812,000 residents, per a report released March 14, 2026.",
+      "model": "claude-sonnet-5-5"
+    },
+    "cost": {
+      "total": 0.0081
+    }
+  }
+}
